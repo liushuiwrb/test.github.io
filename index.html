@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D立体图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .stereoscopic .container{
+            width: 600px;
+            height: 600px;
+            /* background-color: blue; */
+            margin: 0 auto;
+            margin-top: 50px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(30deg) rotateY(30deg);
+            animation: identifier 7s linear infinite;
+        }
+
+        .stereoscopic .container> .chart{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            text-align: center;
+            font-size: 60px;
+            color: white;
+            line-height: 200px;
+            position: absolute;
+            margin-left: 200px;
+            margin-top: 200px;
+            cursor: pointer;
+        }
+
+        .stereoscopic .container> .chart:nth-child(1){
+            background-color: blueviolet;
+            transform: translateZ(100px);
+        }
+
+        .stereoscopic .container> .chart:nth-child(2){
+            background-color: aqua;
+        }
+
+        .stereoscopic .container> .chart:nth-child(3){
+            background-color: brown;
+        }
+
+        .stereoscopic .container> .chart:nth-child(4){
+            background-color: chartreuse;
+            
+        }
+
+        .stereoscopic .container> .chart:nth-child(5){
+            background-color: darkblue;
+        }
+
+        .stereoscopic .container> .chart:nth-child(6){
+            background-color: rgb(47, 47, 47);
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+
+        @keyframes identifier {
+            0%{
+                transform: rotateX(30deg) rotateY(30deg);
+            }
+            25%{
+                transform: rotateX(60deg) rotateY(60deg);
+            }
+
+            50%{
+                transform: rotateX(120deg) rotateY(120deg);
+            }
+
+            75%{
+                transform: rotateX(240deg) rotateY(240deg);
+            }
+
+            100%{
+                transform: rotateX(30deg) rotateY(30deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stereoscopic">
+        <div class="container">
+            <div class="chart">1</div>
+            <div class="chart" style="transform: translateX(-100px) rotateY(-90deg);">2</div>
+            <div class="chart" style="transform: translateX(100px) rotateY(90deg);">3</div>
+            <div class="chart" style="transform: translateY(100px) rotateX(90deg) rotate(-90deg);">4</div>
+            <div class="chart" style="transform: translateY(-100px) rotateX(90deg);">5</div>
+            <div class="chart">6</div>
+        </div>
+    </div>
+</body>
+</html>
